@@ -22,18 +22,18 @@ for i=1:m
     traj_q = LinearTrajectory(q_current, q_next, step_size);
     trajectory = [trajectory; traj_q];
 end
-
+traj_pos = trajectory;
 %% Plot the trajectories
-[t_k, ~] = size(trajectory);
+[t_k, ~] = size(traj_pos);
 % Joint 1
 subplot(311);
-plot(1:t_k, trajectory(:, 1), 'r-*');
+plot(1:t_k, traj_pos(:, 1), 'r-*');
 grid minor;
 % Joint 2
 subplot(312);
-plot(1:t_k, trajectory(:, 2), 'r-*');
+plot(1:t_k, traj_pos(:, 2), 'r-*');
 grid minor;
 % Joint 3
 subplot(313);
-plot(1:t_k, trajectory(:, 3), 'r-*');
+plot(1:t_k, traj_pos(:, 3), 'r-*');
 grid minor;

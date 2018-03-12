@@ -22,7 +22,7 @@ for i=1:m
     traj_pos = LinearTrajectory(pos_current, pos_next, step_size);
     trajectory = [trajectory; traj_pos];
 end
-
+traj_pos = trajectory;
 %% Plot the trajectories
-plot3(trajectory(:,1),trajectory(:,2),trajectory(:,3))
+plot3(traj_pos(:,1),traj_pos(:,2),traj_pos(:,3))
 view(-38,10)
