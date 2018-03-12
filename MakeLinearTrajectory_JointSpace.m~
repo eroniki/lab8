@@ -1,0 +1,16 @@
+clear all; close all; clc;
+m = 5;
+q = rand(m, 3);
+q_dot = [0.01, 0.2, 0.5];
+
+for i=1:m-1
+    q_current = q(i, :)
+    q_next = q(i+1, :)
+    d = abs(q_next - q_current);
+    tmin = d./ q_dot;
+    [tmax, maxId] = max(tmin);
+    q_dot_modified = d ./ tmax;
+    step_size = 0.001 * q_dot_modified;
+    traj_q = LinearTrajectory(q_current, q_next, step_size)
+    disp('~
+end
